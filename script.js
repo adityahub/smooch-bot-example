@@ -40,8 +40,9 @@ module.exports = new Script({
     finish: {
         receive: (bot, message) => {
             return bot.getProp('name')
-                .then((name) => bot.say(`Wait ${name},guru is arriving quickly to answer that'))
-                .then(() => 'finish');
+                .then((name) => bot.say(`Wait ${name},, be patient ` +
+                        'guru is arriving quickly'))
+                        .then(() => 'finish');
         }
     }
 });
