@@ -33,7 +33,11 @@ module.exports = new Script({
             const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Great! You are my new best friend ${name}`))
+                if (name=='Aditya'){
                 .then(() => 'askChoice');
+                }
+                else
+               .then(() => 'finish'); 
         }
     },
 
