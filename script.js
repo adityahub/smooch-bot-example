@@ -15,22 +15,32 @@ module.exports = new Script({
                 .then(() => 'askName');
         }
     },
-
+    
+    askChoice: {
+        prompt: (bot) => bot.say('What would you like to read about - love, health or money?'),
+        receive: (bot, message) => {
+            const name = message.text;
+            return bot.setProp('choice', choice)
+                .then(() => bot.say(`Nice choice, let me connect you with a guru of ${choice}`))
+                .then(() => 'finish');
+        }
+    },
+   
+    
     askName: {
         prompt: (bot) => bot.say('What\'s your name?'),
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Great! You are my new best friend ${name}`))
-                .then(() => 'finish');
+                .then(() => 'askChoice');
         }
     },
 
     finish: {
         receive: (bot, message) => {
             return bot.getProp('name')
-                .then((name) => bot.say(`Sorry ${name}, my creator didn't ` +
-                        'teach me how to do anything else!'))
+                .then((name) => bot.say(`Wait ${name},guru is arriving quickly to answer that'))
                 .then(() => 'finish');
         }
     }
