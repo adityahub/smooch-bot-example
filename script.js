@@ -11,7 +11,7 @@ module.exports = new Script({
     start: {
         receive: (bot) => {
             return bot.say('Hi! I\'m Addy Bot!')
-            .then(() => bot.say(`Nice to meet you'))
+            
                 .then(() => 'askName');
         }
     },
