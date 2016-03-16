@@ -36,8 +36,9 @@ module.exports = new Script({
                 if (name=='Aditya'){
                 .then(() => 'askChoice');
                 }
-                else
+                else {
                .then(() => 'finish'); 
+                }
         }
     },
 
