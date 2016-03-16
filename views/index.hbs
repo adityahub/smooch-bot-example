@@ -2,10 +2,13 @@
 <head>
     <script src="https://cdn.smooch.io/smooch.min.js"></script>
     <script>
-        Smooch.init({appToken: '{{appToken}}' });
+    function getValue(){
+        Smooch.init({appToken: '{{appToken}}', embedded: true});
+        Smooch.render(document.getElementById('chat-container'));
+    }
     </script>
 </head>
 <body>
-    <h2>AddyBot Demo</h2>
+    <h1 id="chat-container" onclick="getValue()">Talk to me</h1>
 </body>
 </html>
