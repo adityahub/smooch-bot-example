@@ -32,13 +32,14 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`Great! You are my new best friend ${name}`));
+                
                 if (name=='Aditya'){
                 .then(() => 'askChoice');
                 }
                 else {
                .then(() => 'finish'); 
                 }
+                .then(() => bot.say(`Great! You are my new best friend ${name}`));
         }
     },
 
