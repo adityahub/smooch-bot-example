@@ -21,6 +21,16 @@ module.exports = new Script({
             const name = message.text;
             return bot.setProp('name', name)
                 .then(() => bot.say(`Great! I'll call you ${name}`))
+                .then(() => 'askChoice');
+        }
+    },
+    
+    askChoice: {
+        prompt: (bot) => bot.say('What would you like to know about - Love, Health, Work?'),
+        receive: (bot, message) => {
+            const name = message.text;
+            return bot.setProp('choice', choice)
+                .then(() => bot.say(`Cool! connecting you with a  ${choice} guru`))
                 .then(() => 'finish');
         }
     },
